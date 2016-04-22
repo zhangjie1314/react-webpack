@@ -4,7 +4,7 @@ import {Router, Link, Route, browserHistory} from 'react-router';
 
 import Login from 'comps/login';
 
-require('../less/app.less');
+require('less/app.less');
 
 class App extends React.Component {
     render(){
