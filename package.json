@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "webpack --progress --profile --colors",
+    "build": "webpack --progress --profile --colors --config webpack.production.config.js",
     "dev": "webpack-dev-server --progress --profile --colors --hot --inline"
   },
   "keywords": [],

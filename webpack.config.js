@@ -9,13 +9,14 @@ var path = require('path'),
 var ROOT_PATH  = path.resolve(__dirname);
 var APP_PATH   = path.resolve(ROOT_PATH, 'src');
 var COMP_PATH  = path.resolve(ROOT_PATH, 'src/companies');
+var CONFIG_PATH= path.resolve(ROOT_PATH, 'src/config');
 var UTILS_PATH = path.resolve(ROOT_PATH, 'src/utils');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var TEM_PATH   = path.resolve(ROOT_PATH, 'templates');
-var STYLE_PATH = path.resolve(ROOT_PATH, 'less');
+var LESS_PATH  = path.resolve(ROOT_PATH, 'less');
+var CSS_PATH   = path.resolve(ROOT_PATH, 'css');
 
 // 插件
-var UglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({minimize: true});
 var HtmlWebpackPlugin  = require('html-webpack-plugin'),
     HWPlugin = new HtmlWebpackPlugin({
         title: 'My first react app',
@@ -30,7 +31,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin'),
         verbose: true,
         dry: true
     });
-var CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.[hash:8].js');
+var CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.js');
 
 var configs = {
     entry: {
@@ -39,10 +40,10 @@ var configs = {
     },
     output: {
         path: BUILD_PATH,
-        filename: 'js/[name].[hash:8].js',
+        filename: 'js/[name].js',
     },
     // 启动dev source map，出错以后就会采用source-map的形式直接显示你出错代码的位置
-    devtool: 'eval-source-map',
+    devtool: 'cheap-module-inline-source-map',
     // 打开开发服务
     devServer: {
         hisotryApiFallback: true,
@@ -79,7 +80,11 @@ var configs = {
                 loader: "style!css!less"
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.css$/,
+                loader: "style!css"
+            },
+            {
+                test: /\.(png|jpg|woff|svg|eot|ttf)\??.*$/,
                 loader: 'url?limit=8192&name=img/[name].[hash:8].[ext]'
             }
         ]
@@ -92,17 +97,18 @@ var configs = {
         // require文件时省略文件的扩展名
         extensions : ['', '.js', '.jsx', '.json'],
         alias: {
-          'react': pathToReact,
-          'react-dom' : pathToReactDOM,
+          'react'        : pathToReact,
+          'react-dom'    : pathToReactDOM,
           'react-router' : pathToReactRouter,
-          'comps' : COMP_PATH,
-          'utils' : UTILS_PATH,
-          'less' : STYLE_PATH
+          'comps'        : COMP_PATH,
+          'utils'        : UTILS_PATH,
+          'less'         : LESS_PATH,
+          'css'          : CSS_PATH,
+          'config-path'  : CONFIG_PATH
         }
     },
     plugins: [
         CWPlugin,
-        UglifyJsPlugin,
         HWPlugin,
         CommonsChunkPlugin
     ]
