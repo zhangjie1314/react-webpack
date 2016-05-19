@@ -17,18 +17,18 @@ export default class App extends React.Component {
                             <i className="icon-home"></i>
                             首页
                         </Link>
-                        <Link to="/list" activeClassName="active">
+                        <Link to="/special" activeClassName="active">
                             <i className="icon-th-list"></i>
-                            列表
+                            专题
                         </Link>
                     </div>
                     
                     <div className="nav-bot">
-                        <Link to="/home" activeClassName="active">
+                        <Link to="/setting" activeClassName="active">
                             <i className="icon-cog"></i>
                             设置
                         </Link>
-                        <Link to="/list" activeClassName="active">
+                        <Link to="/login" activeClassName="active">
                             <i className="icon-user"></i>
                             登录
                         </Link>

@@ -15,6 +15,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var TEM_PATH   = path.resolve(ROOT_PATH, 'templates');
 var LESS_PATH  = path.resolve(ROOT_PATH, 'less');
 var CSS_PATH   = path.resolve(ROOT_PATH, 'css');
+var IMG_PATH   = path.resolve(ROOT_PATH, 'images');
 
 // 插件
 var HtmlWebpackPlugin  = require('html-webpack-plugin'),
@@ -104,7 +105,8 @@ var configs = {
           'utils'        : UTILS_PATH,
           'less'         : LESS_PATH,
           'css'          : CSS_PATH,
-          'config-path'  : CONFIG_PATH
+          'config-path'  : CONFIG_PATH,
+          'img'          : IMG_PATH
         }
     },
     plugins: [
