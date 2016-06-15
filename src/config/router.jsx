@@ -13,7 +13,7 @@ export default class Routes extends React.Component{
         return (
             <Router history={history}>
                 <Route path="/" component={Nav}>
-                    <IndexRoute component={Index}/>
+                    <IndexRoute component={Home}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/list" component={List}/>
                     <Route path="/list/:id" component={Info}/>

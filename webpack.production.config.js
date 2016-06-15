@@ -12,8 +12,10 @@ var COMP_PATH  = path.resolve(ROOT_PATH, 'src/companies');
 var UTILS_PATH = path.resolve(ROOT_PATH, 'src/utils');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var TEM_PATH   = path.resolve(ROOT_PATH, 'templates');
-var STYLE_PATH = path.resolve(ROOT_PATH, 'less');
 var CONFIG_PATH= path.resolve(ROOT_PATH, 'src/config');
+var LESS_PATH  = path.resolve(ROOT_PATH, 'less');
+var CSS_PATH   = path.resolve(ROOT_PATH, 'css');
+var IMG_PATH   = path.resolve(ROOT_PATH, 'images');
 
 // 插件
 var UglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({minimize: true});
@@ -67,7 +69,11 @@ var configs = {
                 loader: "style!css!less"
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.css$/,
+                loader: "style!css"
+            },
+            {
+                test: /\.(png|jpg|woff|svg|eot|ttf)\??.*$/,
                 loader: 'url?limit=8192&name=img/[name].[hash:8].[ext]'
             }
         ]
@@ -80,13 +86,15 @@ var configs = {
         // require文件时省略文件的扩展名
         extensions : ['', '.js', '.jsx', '.json'],
         alias: {
-          'react': pathToReact,
-          'react-dom' : pathToReactDOM,
+          'react'        : pathToReact,
+          'react-dom'    : pathToReactDOM,
           'react-router' : pathToReactRouter,
-          'comps' : COMP_PATH,
-          'utils' : UTILS_PATH,
-          'less' : STYLE_PATH,
-          'config-path'  : CONFIG_PATH
+          'comps'        : COMP_PATH,
+          'utils'        : UTILS_PATH,
+          'less'         : LESS_PATH,
+          'css'          : CSS_PATH,
+          'config-path'  : CONFIG_PATH,
+          'img'          : IMG_PATH
         }
     },
     plugins: [
