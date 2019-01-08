@@ -1,14 +1,15 @@
-import React from 'react';
-import Banner from 'comps/banner';
-import List from 'comps/list';
+import React from 'react'
+import Banner from '../companies/banner'
+import List from '../companies/list'
+import Content from '../companies/content'
 
 export default class NoMatch extends React.Component {
-    render(){
+    render() {
         return (
-            <div>
+            <Content>
                 <Banner />
                 <List />
-            </div>
-        );
+            </Content>
+        )
     }
 }

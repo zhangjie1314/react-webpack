@@ -1,16 +1,12 @@
-import React from 'react';
+import React from 'react'
 
 // 引用样式文件
-require('less/content.less');
+import '../../less/content.less'
 
 class Content extends React.Component {
-    render(){
-        return (
-            <div className="content-box">
-                {this.props.children}
-            </div>
-        );
+    render() {
+        return <div className='content-box'>{this.props.children}</div>
     }
 }
 
-export default Content;
+export default Content

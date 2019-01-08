@@ -1,13 +1,18 @@
-import React from 'react';
+import React from 'react'
+import Content from '../companies/content'
 
 class Login extends React.Component {
-    render() {
-        return(
-            <section>
-                <h1>title { this.props.params.id }</h1>
-            </section>
-        );
+    componentWillMount(){
+        console.log(this.props)
     }
-};
+    render() {
+        const { match } = this.props
+        return (
+            <Content>
+                <h1>title {match.params.id}</h1>
+            </Content>
+        )
+    }
+}
 
-export default Login;
+export default Login

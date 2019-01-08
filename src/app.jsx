@@ -1,27 +1,19 @@
 // 加载基础组件
-import React from 'react';
-import {render} from 'react-dom';
-import {Router, browserHistory} from 'react-router';
-
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 //加载页面组件
-import Header from 'comps/header';
-import Footer from 'comps/footer';
+import Footer from './companies/footer'
 
 // 加载路由文件
-import Routers from 'config-path/router';
+import Routers from './config/router'
 
 // 引用样式文件
-require('less/app.less');
+require('../less/app.less')
 
 // 渲染页面
 // 头部
-render(
+ReactDOM.render(
     <Routers />,
     document.getElementById('content')
-);
-
-// 底部
-render(
-    <Footer />,
-    document.getElementById('footer')
-);
+)

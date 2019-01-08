@@ -1,43 +1,39 @@
-﻿import React from 'react';
-import {Link} from 'react-router';
-import Content from 'comps/content';
+﻿import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 // 引用样式文件
-require('less/nav.less');
-require('css/font-awesome.min.css');
+import '../../less/nav.less'
+import '../../css/font-awesome.min.css'
 
 // 菜单导航文件
 export default class App extends React.Component {
-    render(){
+    render() {
         return (
             <div>
-                <div className="nav-joey">
-                    <div className="nav-top">
-                        <Link to="/home" activeClassName="active">
-                            <i className="icon-home"></i>
+                <div className='nav-joey'>
+                    <div className='nav-top'>
+                        <NavLink exact to='/' activeClassName='active'>
+                            <i className='icon-home' />
                             首页
-                        </Link>
-                        <Link to="/special" activeClassName="active">
-                            <i className="icon-th-list"></i>
+                        </NavLink>
+                        <NavLink to='/special' activeClassName='active'>
+                            <i className='icon-th-list' />
                             专题
-                        </Link>
+                        </NavLink>
                     </div>
-                    
-                    <div className="nav-bot">
-                        <Link to="/setting" activeClassName="active">
-                            <i className="icon-cog"></i>
+
+                    <div className='nav-bot'>
+                        <NavLink to='/setting' activeClassName='active'>
+                            <i className='icon-cog' />
                             设置
-                        </Link>
-                        <Link to="/login" activeClassName="active">
-                            <i className="icon-user"></i>
+                        </NavLink>
+                        <NavLink to='/login' activeClassName='active'>
+                            <i className='icon-user' />
                             登录
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
-                <Content>
-                    {this.props.children}
-                </Content>
             </div>
-        );
+        )
     }
 }
