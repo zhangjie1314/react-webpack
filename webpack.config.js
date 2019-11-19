@@ -24,8 +24,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin'),
             collapseWhitespace: true //删除空白符与换行符
         }
     })
-const OpenBrowserPlugin = require('open-browser-webpack-plugin'),
-    OpenBrowser = new OpenBrowserPlugin({ url: 'http://localhost:' + port })
 
 var configs = {
     // 可选值 none, development , production
@@ -102,7 +100,7 @@ var configs = {
             automaticNameDelimiter: '-'
         }
     },
-    plugins: [ new CleanWebpackPlugin(), HWPlugin, OpenBrowser, new webpack.HotModuleReplacementPlugin() ]
+    plugins: [ new CleanWebpackPlugin(), HWPlugin, new webpack.HotModuleReplacementPlugin() ]
 }
 
 module.exports = configs
