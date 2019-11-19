@@ -23,11 +23,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin'),
         }
     })
 var CleanWebpackPlugin = require('clean-webpack-plugin'),
-    CWPlugin = new CleanWebpackPlugin([ 'build' ], {
-        root: ROOT_PATH,
-        verbose: true,
-        dry: true
-    })
+    CWPlugin = new CleanWebpackPlugin()
 
 var configs = {
     // 可选值 none, development , production

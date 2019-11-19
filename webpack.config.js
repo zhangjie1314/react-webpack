@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 // 文件路径
 var ROOT_PATH = path.resolve(__dirname)
@@ -22,12 +23,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin'),
             removeComments: true, //移除HTML中的注释
             collapseWhitespace: true //删除空白符与换行符
         }
-    })
-var CleanWebpackPlugin = require('clean-webpack-plugin'),
-    CWPlugin = new CleanWebpackPlugin([ 'build' ], {
-        root: ROOT_PATH,
-        verbose: true,
-        dry: true
     })
 const OpenBrowserPlugin = require('open-browser-webpack-plugin'),
     OpenBrowser = new OpenBrowserPlugin({ url: 'http://localhost:' + port })
@@ -107,7 +102,7 @@ var configs = {
             automaticNameDelimiter: '-'
         }
     },
-    plugins: [ CWPlugin, HWPlugin, OpenBrowser, new webpack.HotModuleReplacementPlugin() ]
+    plugins: [ new CleanWebpackPlugin(), HWPlugin, OpenBrowser, new webpack.HotModuleReplacementPlugin() ]
 }
 
 module.exports = configs
