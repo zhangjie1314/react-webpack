@@ -6,7 +6,7 @@
     "scripts": {
         "build": "./node_modules/.bin/webpack --config webpack.production.config.js",
         "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
-        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
     },
     "keywords": [],
     "author": "",
