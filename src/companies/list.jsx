@@ -10,7 +10,7 @@ class List extends React.Component {
                 <div className='page-title'>
                     <ul className='keyword-box'>
                         <li className='kw-text'>
-                            <NavLink to='/seach/关键词'>关键词1</NavLink>
+                            <NavLink to='/seach/关键词'>关键sadf</NavLink>
                         </li>
                         <li className='kw-text'>
                             <NavLink to='/seach/关键词'>关键词1</NavLink>
